@@ -13,6 +13,10 @@ part 'ollama_setting_bloc.freezed.dart';
 
 const kDefaultChatModel = 'llama3.1:latest';
 const kDefaultEmbeddingModel = 'nomic-embed-text:latest';
+const kDefaultOllamaServerUrl = 'http://localhost:11434';
+
+/// llmman (https://github.com/llmmanorg/llmman) serves the Ollama API on 17434.
+const kDefaultLlmmanServerUrl = 'http://localhost:17434';
 
 /// Extension methods to map between PB and UI models
 class OllamaSettingBloc extends Bloc<OllamaSettingEvent, OllamaSettingState> {
@@ -227,7 +231,8 @@ extension on LocalAISettingPB {
   List<SettingItem> toInputItems() => [
         SettingItem(
           content: serverUrl,
-          hintText: 'http://localhost:11434',
+          hintText:
+              '$kDefaultOllamaServerUrl (Ollama) or $kDefaultLlmmanServerUrl (llmman)',
           settingType: SettingType.serverUrl,
         ),
         SettingItem(
