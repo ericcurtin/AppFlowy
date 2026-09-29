@@ -33,6 +33,7 @@ use uuid::Uuid;
 pub struct LocalAISetting {
   /// Base URL of any Ollama-API server: Ollama (`http://localhost:11434`) or
   /// llmman (https://github.com/llmmanorg/llmman, `http://localhost:17434`).
+  /// The server must list both the chat and embedding models in `/api/tags`.
   pub ollama_server_url: String,
   pub chat_model_name: String,
   pub embedding_model_name: String,
